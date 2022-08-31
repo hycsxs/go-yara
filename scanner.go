@@ -277,3 +277,8 @@ func (s *Scanner) GetProfilingInfo() (rpis []RuleProfilingInfo) {
 func (s *Scanner) ResetProfilingInfo() {
 	C.yr_scanner_reset_profiling_info(s.cptr)
 }
+
+func (s *Scanner) SetFileExt(ext string) {
+	suffix := C.CString(ext)
+	C.yr_scanner_set_suffix(s.cptr, suffix)
+}
